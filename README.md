@@ -54,7 +54,7 @@ Relación:
 - 1 Cliente -> 0..* Cuentas  
 - 1 Cuenta -> 0..* Transacciones
 
-![Diagrama de Clases](docs/img/class-diagram.png)
+![Diagrama de Clases](docs/img/class-diagram.jfif)
 
 ---
 
@@ -65,7 +65,7 @@ Flujo:
 - Se crea una transacción
 - Se actualiza el saldo y se muestra mensaje de éxito
 
-![Diagrama de Secuencia](docs/img/sequence-diagram.png)
+![Diagrama de Secuencia](docs/img/sequence-diagram.jfif)
 
 ---
 
@@ -125,6 +125,5 @@ localStorage.setItem('clients', JSON.stringify(clients));
 - Uso de `eventListeners` para manejar las acciones del usuario.
 
 ---
-
-📌 **Nota:** Esta documentación ha sido generada con fines educativos.  
-© 2023 - Sistema FinTech
+ 
+© 2025 - Sistema FinTech
