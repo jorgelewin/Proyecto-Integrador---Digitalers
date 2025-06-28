@@ -125,6 +125,5 @@ localStorage.setItem('clients', JSON.stringify(clients));
 - Uso de `eventListeners` para manejar las acciones del usuario.
 
 ---
-
-📌 **Nota:** Esta documentación ha sido generada con fines educativos.  
-© 2023 - Sistema FinTech
+ 
+© 2025 - Sistema FinTech
