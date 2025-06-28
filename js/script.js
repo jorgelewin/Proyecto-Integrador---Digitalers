@@ -102,16 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1500);
     }
     
-    function loginSuccess() {
-        // En una aplicación real, redirigiríamos al dashboard
-        alert('¡Login exitoso! Redirigiendo al dashboard...');
-        console.log('Credenciales enviadas:', {
-            username: usernameInput.value.trim(),
-            password: passwordInput.value // En realidad nunca deberías loguear contraseñas
-        });
-        
-        // Aquí iría: window.location.href = '/dashboard';
-    }
+ function loginSuccess() {
+    // Redirigir al dashboard con el nombre de usuario
+    const username = usernameInput.value.trim();
+    window.location.href = `dashboard.html?username=${encodeURIComponent(username)}`;
+}
     
     function loadSavedCredentials() {
         const rememberedUsername = localStorage.getItem('rememberedUsername');
