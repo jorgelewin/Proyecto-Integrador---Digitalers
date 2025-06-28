@@ -65,7 +65,7 @@ Flujo:
 - Se crea una transacción
 - Se actualiza el saldo y se muestra mensaje de éxito
 
-![Diagrama de Secuencia](docs/img/sequence-diagram.png)
+![Diagrama de Secuencia](docs/img/sequence-diagram.jfif)
 
 ---
 
