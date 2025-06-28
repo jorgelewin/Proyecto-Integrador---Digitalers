@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTech - Sistema Bancario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Pantalla de login -->
+        <div id="login-screen" class="screen">
+            <h1>Bienvenido al Sistema FinTech</h1>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Iniciar sesión</button>
+                <button type="button" id="show-register">Registrarse</button>
+            </form>
+        </div>
+
+        <!-- Pantalla de registro -->
+        <div id="register-screen" class="screen hidden">
+            <h1>Registro de nuevo cliente</h1>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-name">Nombre:</label>
+                    <input type="text" id="reg-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-lastname">Apellido:</label>
+                    <input type="text" id="reg-lastname" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-dni">DNI:</label>
+                    <input type="text" id="reg-dni" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Correo electrónico:</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Contraseña:</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <button type="submit">Registrarse</button>
+                <button type="button" id="show-login">Volver a login</button>
+            </form>
+        </div>
+
+        <!-- Panel principal -->
+        <div id="main-screen" class="screen hidden">
+            <header>
+                <h1>Bienvenido, <span id="client-name"></span></h1>
+                <button id="logout-btn">Cerrar sesión</button>
+            </header>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="accounts">Mis Cuentas</button>
+                <button class="tab-btn" data-tab="transactions">Movimientos</button>
+                <button class="tab-btn" data-tab="profile">Mi Perfil</button>
+                <button class="tab-btn" data-tab="admin" id="admin-tab">Admin</button>
+            </div>
+
+            <!-- Contenido de pestañas -->
+            <div class="tab-content">
+                <!-- Pestaña de cuentas -->
+                <div id="accounts-tab" class="tab-pane active">
+                    <h2>Mis Cuentas</h2>
+                    <div id="accounts-list"></div>
+                    <button id="create-account-btn">Crear nueva cuenta</button>
+                    
+                    <div id="account-operations" class="hidden">
+                        <h3>Operaciones</h3>
+                        <div class="operation-buttons">
+                            <button id="deposit-btn">Depositar</button>
+                            <button id="withdraw-btn">Retirar</button>
+                            <button id="check-balance-btn">Consultar saldo</button>
+                        </div>
+                        <div id="operation-form" class="hidden">
+                            <form id="transaction-form">
+                                <input type="hidden" id="selected-account">
+                                <div class="form-group">
+                                    <label for="amount">Monto:</label>
+                                    <input type="number" id="amount" step="0.01" min="0" required>
+                                </div>
+                                <button type="submit" id="confirm-transaction">Confirmar</button>
+                                <button type="button" id="cancel-transaction">Cancelar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña de movimientos -->
+                <div id="transactions-tab" class="tab-pane">
+                    <h2>Movimientos</h2>
+                    <div id="transactions-list"></div>
+                </div>
+
+                <!-- Pestaña de perfil -->
+                <div id="profile-tab" class="tab-pane">
+                    <h2>Mi Perfil</h2>
+                    <div id="client-info"></div>
+                    <button id="edit-profile-btn">Editar perfil</button>
+                    <button id="delete-profile-btn">Eliminar cuenta</button>
+                    
+                    <div id="edit-profile-form" class="hidden">
+                        <form id="update-client-form">
+                            <div class="form-group">
+                                <label for="edit-name">Nombre:</label>
+                                <input type="text" id="edit-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-lastname">Apellido:</label>
+                                <input type="text" id="edit-lastname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-dni">DNI:</label>
+                                <input type="text" id="edit-dni" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-email">Correo electrónico:</label>
+                                <input type="email" id="edit-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-password">Nueva contraseña (dejar en blanco para no cambiar):</label>
+                                <input type="password" id="edit-password">
+                            </div>
+                            <button type="submit">Guardar cambios</button>
+                            <button type="button" id="cancel-edit-profile">Cancelar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Pestaña de administración -->
+                <div id="admin-tab" class="tab-pane">
+                    <h2>Administración</h2>
+                    <div id="admin-actions">
+                        <button id="view-all-clients-btn">Ver todos los clientes</button>
+                        <button id="view-all-accounts-btn">Ver todas las cuentas</button>
+                        <button id="view-all-transactions-btn">Ver todas las transacciones</button>
+                    </div>
+                    <div id="admin-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/client.js"></script>
+    <script src="js/account.js"></script>
+    <script src="js/transaction.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
