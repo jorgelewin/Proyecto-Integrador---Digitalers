@@ -54,7 +54,7 @@ Relación:
 - 1 Cliente -> 0..* Cuentas  
 - 1 Cuenta -> 0..* Transacciones
 
-![Diagrama de Clases](docs/img/class-diagram.png)
+![Diagrama de Clases](docs/img/class-diagram.jfif)
 
 ---
 
